@@ -8,7 +8,9 @@ export default function Home() {
         <meta name="description" content="Create article in English and Farsi" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <main>h</main>
+      <section>hero</section>
+      <section>info</section>
+      <section>capabilities</section>
     </>
   );
 }
