@@ -1,17 +1,3 @@
-import Head from "next/head";
+import Home from '@/components/pages/Home/Home';
 
-export default function Home() {
-  return (
-    <>
-      <Head>
-        <title>Khod Khat</title>
-        <meta
-          name="description"
-          content="Create article in English and Farsi"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
-      <main></main>
-    </>
-  );
-}
+export default Home;
