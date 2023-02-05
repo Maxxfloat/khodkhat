@@ -1,17 +1,17 @@
-import { Box } from '@mui/material';
 import Provider from '../provider/Provider';
-import AppBar from './Navbar/AppBar';
+import Footer from './Footer/Footer';
+import Header from './Header/Header';
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
     <Provider>
-      <Box component="header" sx={{ flexGrow: 1 }}>
-        <AppBar />
-      </Box>
+      <header>
+        <Header />
+      </header>
       {children}
-      <Box component="footer" mt="auto">
-        footer
-      </Box>
+      <footer>
+        <Footer />
+      </footer>
     </Provider>
   );
 }
