@@ -6,7 +6,7 @@ function NavMenuToggle() {
   const { toggleBtnHandler, navMenuOpen } = navMenuToggleModel();
 
   return (
-    <button type="button" className="text-3xl md:text-4xl" onClick={toggleBtnHandler}>
+    <button type="button" className="p-3 text-3xl md:text-4xl" onClick={toggleBtnHandler}>
       {navMenuOpen ? <GrClose /> : <HiMenu />}
     </button>
   );
