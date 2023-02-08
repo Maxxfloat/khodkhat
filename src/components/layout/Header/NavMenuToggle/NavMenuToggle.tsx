@@ -1,16 +1,9 @@
-import type { Dispatch, SetStateAction } from 'react';
 import { HiMenu } from 'react-icons/hi';
 import { GrClose } from 'react-icons/gr';
-import navMenuToggleModel from './navMeneToggleModel';
+import navMenuToggleModel from './useNavMeneToggleModel';
 
-function NavMenuToggle({
-  navMenuOpen,
-  setNavMenuOpen
-}: {
-  navMenuOpen: boolean;
-  setNavMenuOpen: Dispatch<SetStateAction<boolean>>;
-}) {
-  const { toggleBtnHandler } = navMenuToggleModel(setNavMenuOpen);
+function NavMenuToggle() {
+  const { toggleBtnHandler, navMenuOpen } = navMenuToggleModel();
 
   return (
     <button type="button" className="text-3xl md:text-4xl" onClick={toggleBtnHandler}>
