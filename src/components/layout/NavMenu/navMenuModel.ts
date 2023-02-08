@@ -1,6 +1,6 @@
 import NavMenuItemProps from '@/types/NavMenuItemProps';
 import { AiFillHome } from 'react-icons/ai';
-import { BsInfoCircle, BsVectorPen } from 'react-icons/bs';
+import { BsInfoCircle, BsPencil } from 'react-icons/bs';
 
 const navMenuModel = () => {
   const navItemData: NavMenuItemProps[] = [
@@ -10,14 +10,14 @@ const navMenuModel = () => {
       title: 'home'
     },
     {
+      Icon: BsPencil,
+      link: '/write',
+      title: 'writer'
+    },
+    {
       Icon: BsInfoCircle,
       link: '/about',
       title: 'about us'
-    },
-    {
-      Icon: BsVectorPen,
-      link: '/write',
-      title: 'research builder'
     }
   ];
   return {
