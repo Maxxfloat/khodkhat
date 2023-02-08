@@ -5,9 +5,10 @@ import Header from './Header/Header';
 function Layout({ children }: { children: React.ReactNode }) {
   return (
     <Provider>
-      <header className="flex justify-between h-12 m-3 md:h-14">
+      <header className="fixed w-full p-3">
         <Header />
       </header>
+      <div className="h-16 md:h-20" />
       {children}
       <footer>
         <Footer />
