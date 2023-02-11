@@ -1,6 +1,5 @@
 import Head from 'next/head';
-import Banner from './Sections/Hero/Banner';
-import InputField from './Sections/Hero/InputField';
+import Hero from './Sections/Hero/Hero';
 
 export default function Home() {
   return (
@@ -11,8 +10,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <section className="flex flex-col items-center justify-center w-full min-h-[90vh] px-5">
-        <Banner />
-        <InputField />
+        <Hero />
       </section>
       <section>info</section>
       <section>capabilities</section>
