@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import Banner from './Sections/Hero/Banner';
+import InputField from './Sections/Hero/InputField';
 
 export default function Home() {
   return (
@@ -8,7 +10,10 @@ export default function Home() {
         <meta name="description" content="Create article in English and Farsi" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <section>hero</section>
+      <section>
+        <Banner />
+        <InputField />
+      </section>
       <section>info</section>
       <section>capabilities</section>
     </>
