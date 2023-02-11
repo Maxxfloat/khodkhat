@@ -4,6 +4,6 @@
 
 @layer base {
   body {
-    @apply bg-beige;
+    @apply bg-gray-100;
   }
 }
