@@ -24,12 +24,8 @@ function Header() {
         </ItemsContainer>
       </div>
       <div
-        className={`flex-col w-64 mt-5 text-xl capitalize transition-transform space-y-7
-                    ${
-                      navState.navMenuOpen
-                        ? 'translate-x-0'
-                        : '-translate-x-full pointer-events-none'
-                    }`}>
+        className={`flex-col w-64 mt-5 text-xl capitalize transition-transform space-y-7 absolute
+                    ${navState.navMenuOpen ? 'translate-x-0' : '-translate-x-full '}`}>
         <NavMenu />
       </div>
     </HeaderContext.Provider>
