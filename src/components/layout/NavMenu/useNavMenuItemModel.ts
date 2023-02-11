@@ -2,13 +2,13 @@ import { useContext } from 'react';
 import HeaderProvider from '../Header/HeaderProvider';
 
 const useNavMenuItemModel = () => {
-  const { setNavMenuOpen } = useContext(HeaderProvider);
+  const { navMenuOpen, setNavMenuOpen } = useContext(HeaderProvider);
 
   const closeMenuHandler = () => {
     setNavMenuOpen(false);
   };
 
-  return { closeMenuHandler };
+  return { navMenuOpen, closeMenuHandler };
 };
 
 export default useNavMenuItemModel;
