@@ -9,7 +9,7 @@ function Layout({ children }: { children: React.ReactNode }) {
         <Header />
       </header>
       <div className="h-16 md:h-20" />
-      {children}
+      <main>{children}</main>
       <footer>
         <Footer />
       </footer>
