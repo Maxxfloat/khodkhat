@@ -14,11 +14,6 @@ function Header() {
         <ItemsContainer>
           <NavMenuToggle />
         </ItemsContainer>
-        <div>
-          <ItemsContainer>
-            <BrandLogo />
-          </ItemsContainer>
-        </div>
         <ItemsContainer>
           <AccountPreview />
         </ItemsContainer>
