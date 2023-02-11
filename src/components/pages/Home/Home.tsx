@@ -10,7 +10,7 @@ export default function Home() {
         <meta name="description" content="Create article in English and Farsi" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <section>
+      <section className="flex flex-col items-center justify-center w-full min-h-[90vh] px-5">
         <Banner />
         <InputField />
       </section>
