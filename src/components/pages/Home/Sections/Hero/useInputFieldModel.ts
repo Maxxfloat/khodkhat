@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
-import axiosInstance from '@/libs/axios/instance';
 import { useRouter } from 'next/router';
+import { useSpeechRecognition } from 'react-speech-recognition';
+import axiosInstance from '@/libs/axios/instance';
 
 const useInputFieldModel = () => {
   const [inputValue, setInputValue] = useState<string>('');
@@ -23,10 +24,18 @@ const useInputFieldModel = () => {
     postSubjectMutation.mutate(inputValue);
   };
 
+  const { transcript, listening } = useSpeechRecognition();
+
+  useEffect(() => {
+    setInputValue(transcript);
+  }, [setInputValue, transcript]);
+
   return {
+    setInputValue,
     inputValue,
     inputChangeHandler,
-    postHandler
+    postHandler,
+    listening
   };
 };
 
