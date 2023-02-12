@@ -1,3 +1,4 @@
+import SpeechInput from './SpeechInput';
 import useInputFieldModel from './useInputFieldModel';
 
 function InputField() {
@@ -11,6 +12,7 @@ function InputField() {
           placeholder="Subject..."
           className="w-full p-3 m-3 text-xl border-b rounded-t shadow-md outline-none focus:border-red-600 border-merlin placeholder:text-gray-700"
         />
+        <SpeechInput />
       </div>
       <button
         type="button"
