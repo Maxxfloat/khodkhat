@@ -1,20 +1,18 @@
 import { useEffect, useState } from 'react';
-import { useMutation } from '@tanstack/react-query';
-import { useRouter } from 'next/router';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
-import axiosInstance from '@/libs/axios/instance';
+import usePostSubject from '@/data/usePostSubject';
 
 const useInputFieldModel = () => {
   const [inputValue, setInputValue] = useState<string>('');
   const [beforeSpeechValue, setBeforeSpeechValue] = useState<string>('');
-
-  const router = useRouter();
 
   const { transcript, listening, resetTranscript } = useSpeechRecognition();
 
   useEffect(() => {
     setInputValue(`${beforeSpeechValue}${transcript}`);
   }, [setInputValue, transcript, beforeSpeechValue]);
+
+  const postSubjectMutation = usePostSubject();
 
   const clickMicrophoneHandler = () => {
     if (listening) {
@@ -26,12 +24,6 @@ const useInputFieldModel = () => {
     }
   };
 
-  const resetHandler = () => {
-    setBeforeSpeechValue('');
-    resetTranscript();
-    setInputValue('');
-  };
-
   const inputChangeHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputValue(e.currentTarget.value);
     if (transcript) {
@@ -39,14 +31,11 @@ const useInputFieldModel = () => {
     }
   };
 
-  const postSubjectMutation = useMutation({
-    mutationFn(value: string | undefined) {
-      return axiosInstance.post('/posts', value);
-    },
-    onSuccess() {
-      router.push('write');
-    }
-  });
+  const resetHandler = () => {
+    setBeforeSpeechValue('');
+    resetTranscript();
+    setInputValue('');
+  };
 
   const postHandler = () => {
     postSubjectMutation.mutate(inputValue);
