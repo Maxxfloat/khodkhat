@@ -1,32 +1,54 @@
-import { useState } from 'react';
-import { useMutation } from '@tanstack/react-query';
-import axiosInstance from '@/libs/axios/instance';
-import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import usePostSubject from '@/data/usePostSubject';
 
 const useInputFieldModel = () => {
   const [inputValue, setInputValue] = useState<string>('');
-  const router = useRouter();
+  const [beforeSpeechValue, setBeforeSpeechValue] = useState<string>('');
 
-  const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.currentTarget.value);
-  };
-  const postSubjectMutation = useMutation({
-    mutationFn(value: string | undefined) {
-      return axiosInstance.post('/posts', value);
-    },
-    onSuccess() {
-      router.push('write');
+  const { transcript, listening, resetTranscript } = useSpeechRecognition();
+
+  useEffect(() => {
+    setInputValue(`${beforeSpeechValue}${transcript}`);
+  }, [setInputValue, transcript, beforeSpeechValue]);
+
+  const postSubjectMutation = usePostSubject();
+
+  const clickMicrophoneHandler = () => {
+    if (listening) {
+      SpeechRecognition.stopListening();
+    } else {
+      setBeforeSpeechValue(inputValue);
+      resetTranscript();
+      SpeechRecognition.startListening({ continuous: true });
     }
-  });
+  };
+
+  const inputChangeHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setInputValue(e.currentTarget.value);
+    if (transcript) {
+      SpeechRecognition.abortListening();
+    }
+  };
+
+  const resetHandler = () => {
+    setBeforeSpeechValue('');
+    resetTranscript();
+    setInputValue('');
+  };
 
   const postHandler = () => {
     postSubjectMutation.mutate(inputValue);
   };
 
   return {
+    setInputValue,
     inputValue,
     inputChangeHandler,
-    postHandler
+    postHandler,
+    listening,
+    resetHandler,
+    clickMicrophoneHandler
   };
 };
 
