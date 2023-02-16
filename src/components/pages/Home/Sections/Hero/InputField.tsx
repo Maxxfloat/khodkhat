@@ -6,7 +6,7 @@ function InputField() {
     inputValue,
     listening,
     inputChangeHandler,
-    postHandler,
+    startHandler,
     clickMicrophoneHandler,
     resetHandler
   } = useInputFieldModel();
@@ -34,7 +34,7 @@ function InputField() {
       </div>
       <button
         type="button"
-        onClick={postHandler}
+        onClick={startHandler}
         className="px-3 py-1 mt-2 border border-black hover:bg-white ">
         Start
       </button>
