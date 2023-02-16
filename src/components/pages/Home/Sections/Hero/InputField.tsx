@@ -12,7 +12,7 @@ function InputField() {
   } = useInputFieldModel();
 
   return (
-    <div className="flex flex-col items-center w-full h-52">
+    <div className="flex flex-col items-center w-full min-h-[13rem]">
       <div className="flex justify-center w-full sm:w-2/3 md:w-1/2 lg:w-2/5 xl:w-1/3">
         <div className="flex w-full m-3 text-xl bg-white border-b rounded-t shadow-md focus-within:border-red-600 border-merlin">
           <textarea
