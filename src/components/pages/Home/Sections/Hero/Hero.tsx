@@ -8,7 +8,9 @@ function Hero() {
   return (
     <>
       <Banner />
-      <InputField inputValue={inputValue} setInputValue={setInputValue} />
+      <div className="sm:w-2/3 md:w-1/2 lg:w-2/5 xl:w-1/3">
+        <InputField inputValue={inputValue} setInputValue={setInputValue} />
+      </div>
       <StartBtn inputValue={inputValue} />
     </>
   );
