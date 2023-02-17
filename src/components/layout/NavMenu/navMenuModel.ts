@@ -11,7 +11,7 @@ const navMenuModel = () => {
     },
     {
       Icon: BsPencil,
-      link: '/write',
+      link: '/writer',
       title: 'writer'
     },
     {
