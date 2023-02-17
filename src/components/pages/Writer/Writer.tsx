@@ -1,10 +1,11 @@
+import InputField from '../Home/Sections/Hero/InputField';
 import useWriteModel from './useWriterModel';
 
 function Writer() {
-  const { subject } = useWriteModel();
+  const { inputValue, setInputValue } = useWriteModel();
   return (
     <div>
-      <p>{subject}</p>
+      <InputField inputValue={inputValue} setInputValue={setInputValue} />
     </div>
   );
 }
