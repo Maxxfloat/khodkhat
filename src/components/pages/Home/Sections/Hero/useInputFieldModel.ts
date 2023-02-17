@@ -1,13 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Dispatch, SetStateAction } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
-import usePostSubject from '@/data/usePostSubject';
-import { useRouter } from 'next/router';
 
-const useInputFieldModel = () => {
-  const [inputValue, setInputValue] = useState<string>('');
+const useInputFieldModel = (
+  inputValue: string,
+  setInputValue: Dispatch<SetStateAction<string>>
+) => {
   const [beforeSpeechValue, setBeforeSpeechValue] = useState<string>('');
-
-  const router = useRouter();
 
   const { transcript, listening, resetTranscript } = useSpeechRecognition();
 
@@ -38,22 +36,8 @@ const useInputFieldModel = () => {
     setInputValue('');
   };
 
-  const startHandler = () => {
-    if (inputValue === '') {
-      router.push('writer');
-    }
-    router.push({
-      pathname: 'writer',
-      query: {
-        subject: inputValue
-      }
-    });
-  };
-
   return {
-    inputValue,
     inputChangeHandler,
-    startHandler,
     listening,
     resetHandler,
     clickMicrophoneHandler

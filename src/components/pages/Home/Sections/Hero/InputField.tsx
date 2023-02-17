@@ -1,15 +1,16 @@
+import { Dispatch, SetStateAction } from 'react';
 import SpeechInput from './SpeechInput';
 import useInputFieldModel from './useInputFieldModel';
 
-function InputField() {
-  const {
-    inputValue,
-    listening,
-    inputChangeHandler,
-    startHandler,
-    clickMicrophoneHandler,
-    resetHandler
-  } = useInputFieldModel();
+function InputField({
+  inputValue,
+  setInputValue
+}: {
+  inputValue: string;
+  setInputValue: Dispatch<SetStateAction<string>>;
+}) {
+  const { listening, inputChangeHandler, clickMicrophoneHandler, resetHandler } =
+    useInputFieldModel(inputValue, setInputValue);
 
   return (
     <div className="flex flex-col items-center w-full min-h-[13rem]">
@@ -32,12 +33,6 @@ function InputField() {
           <SpeechInput clickMicrophoneHandler={clickMicrophoneHandler} />
         </div>
       </div>
-      <button
-        type="button"
-        onClick={startHandler}
-        className="px-5 py-1 mt-2 border border-black hover:bg-white ">
-        Start
-      </button>
     </div>
   );
 }
