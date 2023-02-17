@@ -15,8 +15,6 @@ const useInputFieldModel = () => {
     setInputValue(`${beforeSpeechValue}${transcript}`);
   }, [setInputValue, transcript, beforeSpeechValue]);
 
-  const postSubjectMutation = usePostSubject();
-
   const clickMicrophoneHandler = () => {
     if (listening) {
       SpeechRecognition.stopListening();
@@ -42,9 +40,14 @@ const useInputFieldModel = () => {
 
   const startHandler = () => {
     if (inputValue === '') {
-      router.push('write');
+      router.push('writer');
     }
-    postSubjectMutation.mutate(inputValue);
+    router.push({
+      pathname: 'writer',
+      query: {
+        subject: inputValue
+      }
+    });
   };
 
   return {

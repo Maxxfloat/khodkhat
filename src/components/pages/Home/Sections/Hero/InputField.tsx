@@ -35,7 +35,7 @@ function InputField() {
       <button
         type="button"
         onClick={startHandler}
-        className="px-3 py-1 mt-2 border border-black hover:bg-white ">
+        className="px-5 py-1 mt-2 border border-black hover:bg-white ">
         Start
       </button>
     </div>
