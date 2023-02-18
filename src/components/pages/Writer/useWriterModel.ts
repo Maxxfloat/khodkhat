@@ -3,6 +3,8 @@ import { useRouter } from 'next/router';
 
 const useWriterModel = () => {
   const [subjectValue, setSubjectValue] = useState<string>('');
+  const [wordsNumber, setWordsNumber] = useState<number>(200);
+
   const router = useRouter();
 
   useEffect(() => {
@@ -16,7 +18,9 @@ const useWriterModel = () => {
 
   return {
     subjectValue,
-    setSubjectValue
+    setSubjectValue,
+    wordsNumber,
+    setWordsNumber
   };
 };
 
