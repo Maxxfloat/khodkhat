@@ -5,7 +5,7 @@ function Hero() {
   return (
     <div className="w-full sm:w-5/6 md:w-4/6 lg:w-6/12 xl:4/12 2xl:w-4/12 px-5">
       <Banner />
-      <div className="flex w-full gap-4 h-10 mt-12">
+      <div className="flex w-full gap-4 h-10">
         <Link href="writer" className="w-2/6">
           <button
             type="button"
