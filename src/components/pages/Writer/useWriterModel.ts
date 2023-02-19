@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 const useWriterModel = () => {
   const [subjectValue, setSubjectValue] = useState<string>('');

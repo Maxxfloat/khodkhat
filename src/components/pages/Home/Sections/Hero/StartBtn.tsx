@@ -1,14 +1,12 @@
-import useStartBtnModel from './useStartBtnModel';
+import Link from 'next/link';
 
-function StartBtn({ inputValue }: { inputValue: string }) {
-  const { startHandler } = useStartBtnModel(inputValue);
+function StartBtn() {
   return (
-    <button
-      type="button"
-      onClick={startHandler}
-      className="px-5 py-1 mt-2 border border-black hover:bg-white ">
-      Start
-    </button>
+    <Link href="writer">
+      <button type="button" className="px-5 py-1 mt-2 border border-black hover:bg-white ">
+        Start
+      </button>
+    </Link>
   );
 }
 
