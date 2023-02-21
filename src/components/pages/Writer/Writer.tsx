@@ -1,13 +1,15 @@
-import InputField from '../Home/Sections/Hero/InputField';
+import SubjectField from '@/components/InputFields/subjectField';
 import OptionsMenu from './OptionsMenu/OptionsMenu';
 import useWriteModel from './useWriterModel';
 
 function Writer() {
   const { setSubjectValue, subjectValue, wordsNumber, setWordsNumber } = useWriteModel();
   return (
-    <div>
-      <InputField inputValue={subjectValue} setInputValue={setSubjectValue} />
-      <OptionsMenu wordsNumber={wordsNumber} setWordsNumber={setWordsNumber} />
+    <div className="flex flex-col items-center">
+      <div className="mx-1 sm:mx-0 sm:w-11/12 md:w-9/12 lg:w-8/12 xl:w-7/12 2xl:w-6/12">
+        <SubjectField subjectValue={subjectValue} setSubjectValue={setSubjectValue} />
+        <OptionsMenu wordsNumber={wordsNumber} setWordsNumber={setWordsNumber} />
+      </div>
     </div>
   );
 }
