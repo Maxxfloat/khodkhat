@@ -1,22 +1,22 @@
 import { Dispatch, SetStateAction } from 'react';
-import SpeechInput from './SpeechInput';
-import useInputFieldModel from './useInputFieldModel';
+import SpeechInput from '../pages/Home/Sections/Hero/SpeechInput';
+import useSubjectFieldModel from './useSubjectFieldModel';
 
-function InputField({
-  inputValue,
-  setInputValue
+function SubjectField({
+  subjectValue,
+  setSubjectValue
 }: {
-  inputValue: string;
-  setInputValue: Dispatch<SetStateAction<string>>;
+  subjectValue: string;
+  setSubjectValue: Dispatch<SetStateAction<string>>;
 }) {
   const { listening, inputChangeHandler, clickMicrophoneHandler, resetHandler } =
-    useInputFieldModel(inputValue, setInputValue);
+    useSubjectFieldModel(subjectValue, setSubjectValue);
 
   return (
     <div className="flex justify-center w-full min-h-full">
-      <div className="flex w-full m-3 text-xl bg-white border-b rounded-t shadow-md focus-within:border-red-600 border-merlin">
+      <div className="flex w-full text-xl bg-white border-b rounded-t shadow-md mie-3 focus-within:border-red-600 border-merlin">
         <textarea
-          value={inputValue}
+          value={subjectValue}
           onChange={inputChangeHandler}
           placeholder="Subject..."
           className="py-4 border-b outline-none grow placeholder:text-gray-700 pis-3 "
@@ -35,4 +35,4 @@ function InputField({
   );
 }
 
-export default InputField;
+export default SubjectField;
