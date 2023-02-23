@@ -1,18 +1,9 @@
-import { Dispatch, SetStateAction } from 'react';
+/* eslint-disable react/jsx-props-no-spreading */
 import WriterOptionInputWrapper from '@/components/InputFields/WriterOptionInputWrapper';
 import useOptionsMenuModel from './useOptionsMenuModel';
 
-function OptionsMenu({
-  wordsNumber,
-  setWordsNumber
-}: {
-  wordsNumber: number;
-  setWordsNumber: Dispatch<SetStateAction<number>>;
-}) {
-  const { wordsNumberChangeHandler, numberOfPages, tones } = useOptionsMenuModel(
-    wordsNumber,
-    setWordsNumber
-  );
+function OptionsMenu() {
+  const { numberOfPages, tones, register } = useOptionsMenuModel();
 
   return (
     <div className="grid grid-flow-row grid-cols-2 gap-x-12 gap-y-5">
@@ -22,8 +13,7 @@ function OptionsMenu({
           min="200"
           id="words"
           className="outline-none mie-2 "
-          value={wordsNumber}
-          onChange={wordsNumberChangeHandler}
+          {...register('words', { min: 200 })}
         />
         <span>about {numberOfPages} pages</span>
       </WriterOptionInputWrapper>
@@ -39,7 +29,7 @@ function OptionsMenu({
         </select>
       </WriterOptionInputWrapper>
       <WriterOptionInputWrapper label="more data">
-        <textarea id="more data">what</textarea>
+        <textarea id="more data" />
       </WriterOptionInputWrapper>
     </div>
   );

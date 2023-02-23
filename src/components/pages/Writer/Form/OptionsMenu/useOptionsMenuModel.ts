@@ -1,5 +1,6 @@
 import numberOfPagesCalculator from '@/utils/numberOfPagesCalculator';
-import { ChangeEvent, Dispatch, SetStateAction } from 'react';
+import { ChangeEvent } from 'react';
+import { useFormContext } from 'react-hook-form';
 
 const tones = [
   'Formal',
@@ -17,21 +18,16 @@ const tones = [
   'Cooperative'
 ];
 
-const useOptionsMenuModel = (words: number, setWords: Dispatch<SetStateAction<number>>) => {
-  const numberOfPages = numberOfPagesCalculator(words);
+const useOptionsMenuModel = () => {
+  const { getValues, register } = useFormContext();
 
-  const wordsNumberChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    const wordsNumber = parseFloat(e.target.value);
-    if (Number.isNaN(wordsNumber) || wordsNumber < 200) {
-      setWords(200);
-    }
-    setWords(wordsNumber);
-  };
+  const words = getValues('words');
+  const numberOfPages = numberOfPagesCalculator(words);
 
   return {
     tones,
     numberOfPages,
-    wordsNumberChangeHandler
+    register
   };
 };
 
