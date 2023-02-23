@@ -1,18 +1,14 @@
+import WriterFormType from '@/types/WriterFormType';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 const useWriterModel = () => {
-  const [subjectValue, setSubjectValue] = useState<string>('');
-  const [wordsNumber, setWordsNumber] = useState<number>(200);
-
-  const { register } = useForm();
+  const formMethods = useForm<WriterFormType>({
+    values: { subject: '', words: 200, tone: 'formal' }
+  });
 
   return {
-    subjectValue,
-    setSubjectValue,
-    wordsNumber,
-    setWordsNumber,
-    register
+    formMethods
   };
 };
 
