@@ -7,8 +7,8 @@ function SubjectField() {
     useSubjectFieldModel();
 
   return (
-    <div className="flex justify-center w-full min-h-full">
-      <div className="flex w-full text-xl bg-white border-b rounded-t shadow-md mie-3 focus-within:border-red-600 border-merlin">
+    <div className="flex flex-col items-center w-full min-h-full gap-y-3 gap-x-3 sm:justify-center sm:flex-row">
+      <div className="flex w-full text-xl bg-white border-b rounded-t shadow-md focus-within:border-red-600 border-merlin">
         <textarea
           onChange={inputChangeHandler}
           {...moreRegister}
