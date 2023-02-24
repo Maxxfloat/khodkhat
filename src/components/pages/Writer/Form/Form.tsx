@@ -9,7 +9,6 @@ function Form({ children }: { children: ReactNode }) {
       <fieldset>
         <legend className="mb-3 font-bold">writer options</legend>
         {children}
-        <input type="submit" title="sub" />
       </fieldset>
     </form>
   );

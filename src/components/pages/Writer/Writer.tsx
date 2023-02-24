@@ -15,6 +15,9 @@ function Writer() {
           <Form>
             <SubjectField />
             <OptionsMenu />
+            <button type="submit" className="px-3 py-1 text-lg border-2 border-black">
+              Send
+            </button>
           </Form>
         </FormProvider>
       </div>
