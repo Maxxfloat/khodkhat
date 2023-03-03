@@ -1,6 +1,5 @@
 import WriterFormType from '@/types/WriterFormType';
 import numberOfPagesCalculator from '@/utils/numberOfPagesCalculator';
-import { ChangeEvent } from 'react';
 import { useFormContext } from 'react-hook-form';
 
 const tones = [
