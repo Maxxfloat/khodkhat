@@ -1,12 +1,15 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { FormProvider } from 'react-hook-form';
+import dynamic from 'next/dynamic';
 import SubjectField from '@/components/InputFields/SubjectField';
 import OptionsMenu from './Form/OptionsMenu/OptionsMenu';
-import useWriteModel from './useWriterModel';
+import useWriterModel from './useWriterModel';
 import Form from './Form/Form';
 
+const Result = dynamic(() => import('./Result/Result'), { ssr: false });
+
 function Writer() {
-  const { formMethods } = useWriteModel();
+  const { formMethods } = useWriterModel();
 
   return (
     <div className="flex flex-col items-center">
@@ -15,8 +18,14 @@ function Writer() {
           <Form>
             <SubjectField />
             <OptionsMenu />
+            <button type="submit" className="px-3 py-1 text-lg border-2 border-black">
+              Send
+            </button>
           </Form>
         </FormProvider>
+        <div className="mt-3">
+          <Result />
+        </div>
       </div>
     </div>
   );

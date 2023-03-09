@@ -6,7 +6,7 @@ function OptionsMenu() {
   const { numberOfPages, tones, register } = useOptionsMenuModel();
 
   return (
-    <div className="grid grid-flow-row grid-cols-2 gap-x-12 gap-y-5">
+    <div className="grid grid-flow-row my-5 md:grid-cols-2 gap-x-12 gap-y-5">
       <WriterOptionInputWrapper label="words">
         <input
           type="number"
@@ -18,7 +18,7 @@ function OptionsMenu() {
         <span>about {numberOfPages} pages</span>
       </WriterOptionInputWrapper>
       <WriterOptionInputWrapper label="tone">
-        <select id="tone" className="w-full">
+        <select id="tone" className="w-full" {...register('tone')}>
           {tones.map((tone) => {
             return (
               <option className="w-full" key={tone}>
@@ -29,7 +29,7 @@ function OptionsMenu() {
         </select>
       </WriterOptionInputWrapper>
       <WriterOptionInputWrapper label="more data">
-        <textarea id="more data" />
+        <textarea id="more data" className="w-full" {...register('additionalInfo')} />
       </WriterOptionInputWrapper>
     </div>
   );
